@@ -1,0 +1,31 @@
+﻿<Window x:Class="MichalJeUmpalumpa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Background="Black"
+        Title="Michal je Umpalumpa" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250" />
+            <RowDefinition Height="25" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+
+        <MediaElement Margin="10,10,10,0" Name="Player" Width="450" Height="250" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill"/>
+
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="14" Foreground="White" Text="Video.mp4" Name="DetailsLabel"/>
+        <WrapPanel Grid.Row="2" HorizontalAlignment="Center">
+            <WrapPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Margin" Value="10,0" />
+                    <Setter Property="Padding" Value="10,5" />
+                </Style>
+            </WrapPanel.Resources>
+
+            <Button Content="Previous" PreviewMouseDown="PrevClick" Width="75"/>
+            <Button Content="Pause" PreviewMouseDown="PlaybackClick" Width="75" Name="PlaybackStateLabel"/>
+            <Button Content="Next" PreviewMouseDown="NextClick" Width="75"/>
+        </WrapPanel>
+    </Grid>
+</Window>
